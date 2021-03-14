@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
+    <title>xkcd.com</title>
+    <link href="https://xkcd.com/" rel="alternate"/>
+    <id>https://xkcd.com/</id>
+    <updated>2021-03-12T00:00:00Z</updated>
+    <entry>
+        <title>Circles</title>
+        <link href="https://xkcd.com/2436/" rel="alternate"/>
+        <updated>2021-03-12T00:00:00Z</updated>
+        <id>https://xkcd.com/2436/</id>
+        <summary type="html">&lt;img src="https://imgs.xkcd.com/comics/circles.png" title="( MSTE ( AR ) CD )" alt="( MSTE ( AR ) CD )" /&gt;</summary>
+    </entry>
+    <entry>
+        <title>Geothmetic Meandian</title>
+        <link href="https://xkcd.com/2435/" rel="alternate"/>
+        <updated>2021-03-10T00:00:00Z</updated>
+        <id>https://xkcd.com/2435/</id>
+        <summary type="html">&lt;img src="https://imgs.xkcd.com/comics/geothmetic_meandian.png" title="Pythagorean means are nice and all, but throwing the median in the pot is really what turns this into random forest statistics: applying every function you can think of, and then gradually dropping the ones that make the result worse." alt="Pythagorean means are nice and all, but throwing the median in the pot is really what turns this into random forest statistics: applying every function you can think of, and then gradually dropping the ones that make the result worse." /&gt;</summary>
+    </entry>
+    <entry>
+        <title>Vaccine Guidance</title>
+        <link href="https://xkcd.com/2434/" rel="alternate"/>
+        <updated>2021-03-08T00:00:00Z</updated>
+        <id>https://xkcd.com/2434/</id>
+        <summary type="html">&lt;img src="https://imgs.xkcd.com/comics/vaccine_guidance.png" title="I can't wait until I'm fully vaccinated and can safely send chat messages in all caps again." alt="I can't wait until I'm fully vaccinated and can safely send chat messages in all caps again." /&gt;</summary>
+    </entry>
+    <entry>
+        <title>Mars Rovers</title>
+        <link href="https://xkcd.com/2433/" rel="alternate"/>
+        <updated>2021-03-05T00:00:00Z</updated>
+        <id>https://xkcd.com/2433/</id>
+        <summary type="html">&lt;img src="https://imgs.xkcd.com/comics/mars_rovers.png" title="I just Googled 'roomba sojourner mod' and was sorely disappointed. Be the change, I guess!" alt="I just Googled 'roomba sojourner mod' and was sorely disappointed. Be the change, I guess!" /&gt;</summary>
+    </entry>
+</feed>

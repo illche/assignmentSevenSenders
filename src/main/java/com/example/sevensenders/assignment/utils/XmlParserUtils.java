@@ -51,7 +51,11 @@ public final class XmlParserUtils {
             webComicsResult.setPublishDate(new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", Locale.ENGLISH).parse(entry.getPubDate()));
         } catch (Exception ignored) {
         }
-        webComicsResult.setPictureUrl(entry.getLink());
+        Pattern pattern = Pattern.compile("<a href=\"(.*?)\"");
+        Matcher matcher = pattern.matcher(entry.getEncoded());
+        if(matcher.find()) {
+            webComicsResult.setPictureUrl(matcher.group(1));
+        }
         webComicsResult.setTitle(entry.getTitle());
         return webComicsResult;
     }

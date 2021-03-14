@@ -1,40 +1,20 @@
 package com.example.sevensenders.assignment.dto.pdl;
 
+import lombok.Data;
+
+import javax.xml.bind.annotation.*;
+
+
+
+@Data
+@XmlRootElement(name = "item")
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Item {
     private String title;
     private String link;
     private String pubDate;
     private String guid;
+    @XmlElement(namespace = "http://purl.org/rss/1.0/modules/content/")
+    private String encoded;
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getLink() {
-        return link;
-    }
-
-    public void setLink(String link) {
-        this.link = link;
-    }
-
-    public String getPubDate() {
-        return pubDate;
-    }
-
-    public void setPubDate(String pubDate) {
-        this.pubDate = pubDate;
-    }
-
-    public String getGuid() {
-        return guid;
-    }
-
-    public void setGuid(String guid) {
-        this.guid = guid;
-    }
 }
