@@ -1,4 +1,4 @@
-package com.example.sevensenders.assignment.dto.pdl;
+package com.example.sevensenders.assignment.dto.pdl.xml;
 
 import lombok.Data;
 

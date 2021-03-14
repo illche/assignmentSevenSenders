@@ -32,7 +32,7 @@ public class WebComicsRetrieveService {
         List<WebComicsResult> resultList = new ArrayList<>();
         resultList.addAll(getComicsFromXKCDXml().stream().limit(10).collect(Collectors.toList()));
         resultList.addAll(getComicsFromPDL().stream().limit(10).collect(Collectors.toList()));
-        getCurrentComicFromXKCD();
+        resultList.addAll(getCurrentComicFromXKCD());
         return resultList.stream()
                 .sorted((x, y) -> {
                     return x.getPublishDate().after(y.getPublishDate()) ? -1 : 1;

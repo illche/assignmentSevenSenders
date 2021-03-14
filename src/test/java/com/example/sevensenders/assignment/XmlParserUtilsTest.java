@@ -19,8 +19,7 @@ public class XmlParserUtilsTest {
     private String readXmlFromFile(String path) throws Exception {
         ClassLoader classLoader = getClass().getClassLoader();
         URL resource = classLoader.getResource(path);
-        return Files.lines(Paths.get(resource.getPath().substring(1))
-        ).collect(Collectors.joining("\n"));
+        return Files.lines(Paths.get(resource.getPath().substring(1))).collect(Collectors.joining("\n"));
     }
 
     @Test

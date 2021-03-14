@@ -1,8 +1,8 @@
 package com.example.sevensenders.assignment.utils;
 
 import com.example.sevensenders.assignment.dto.WebComicsResult;
-import com.example.sevensenders.assignment.dto.pdl.Item;
-import com.example.sevensenders.assignment.dto.pdl.RSS;
+import com.example.sevensenders.assignment.dto.pdl.xml.Item;
+import com.example.sevensenders.assignment.dto.pdl.xml.RSS;
 import com.example.sevensenders.assignment.dto.xkcd.xml.Entry;
 import com.example.sevensenders.assignment.dto.xkcd.xml.Feed;
 
