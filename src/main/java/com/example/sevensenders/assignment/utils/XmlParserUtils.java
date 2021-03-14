@@ -12,6 +12,8 @@ import java.io.StringReader;
 import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public final class XmlParserUtils {
@@ -25,7 +27,7 @@ public final class XmlParserUtils {
             JAXBContext context = JAXBContext.newInstance(Feed.class);
             Unmarshaller unmarshaller = context.createUnmarshaller();
             Feed feed = (Feed) unmarshaller.unmarshal(new StringReader(removeNameSpace(xml)));
-            return feed.getEntry().stream().map(XmlParserUtils::transformXkcdEntryToWebComicasResult).collect(Collectors.toList());
+            return feed.getEntry().stream().map(XmlParserUtils::transformXkcdEntryToWebComicsResult).collect(Collectors.toList());
         } catch (Exception ignored) {
         }
         return null;
@@ -54,7 +56,7 @@ public final class XmlParserUtils {
         return webComicsResult;
     }
 
-    private static WebComicsResult transformXkcdEntryToWebComicasResult(Entry entry) {
+    private static WebComicsResult transformXkcdEntryToWebComicsResult(Entry entry) {
         WebComicsResult webComicsResult = new WebComicsResult();
         webComicsResult.setWebUrl(entry.getLink().getHref());
         webComicsResult.setTitle(entry.getTitle());
@@ -62,7 +64,11 @@ public final class XmlParserUtils {
             webComicsResult.setPublishDate(new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.ENGLISH).parse(entry.getUpdated()));
         } catch (Exception ignored) {
         }
-        webComicsResult.setPictureUrl(entry.getSummary());
+        Pattern pattern = Pattern.compile("src=\"(.*?)\"");
+        Matcher matcher = pattern.matcher(entry.getSummary());
+        if(matcher.find()) {
+            webComicsResult.setPictureUrl(matcher.group(1));
+        }
         return webComicsResult;
     }
 

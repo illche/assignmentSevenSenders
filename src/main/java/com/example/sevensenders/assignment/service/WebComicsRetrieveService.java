@@ -6,6 +6,7 @@ import com.example.sevensenders.assignment.dto.xkcd.json.WebComicsXkcdDTO;
 import com.example.sevensenders.assignment.utils.BeanParserUtils;
 import com.example.sevensenders.assignment.utils.XmlParserUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -15,6 +16,14 @@ import java.util.stream.Collectors;
 @Component
 public class WebComicsRetrieveService {
 
+    @Value("${xkcd.xml.comics.url}")
+    private String xkcdXmlUrl;
+
+    @Value("${xkcd.json.comics.url}")
+    private String xkcdJsonUrl;
+
+    @Value("${pdl.xml.comics.url}")
+    private String pdlXmlUrl;
     @Autowired
     private ComicsWebRequestClient client;
 
@@ -32,19 +41,16 @@ public class WebComicsRetrieveService {
     }
 
     private List<WebComicsResult> getComicsFromXKCDXml() {
-        String uri = "https://xkcd.com/atom.xml";
-        return XmlParserUtils.parseXkcdXMLToEntities(client.getResultFromUrl(uri, String.class));
+        return XmlParserUtils.parseXkcdXMLToEntities(client.getResultFromUrl(xkcdXmlUrl, String.class));
     }
 
     private List<WebComicsResult> getComicsFromPDL() {
-        String uri = "http://feeds.feedburner.com/PoorlyDrawnLines";
-        return XmlParserUtils.parsePdlXMLToEntries(client.getResultFromUrl(uri, String.class));
+        return XmlParserUtils.parsePdlXMLToEntries(client.getResultFromUrl(pdlXmlUrl, String.class));
     }
 
     private List<WebComicsResult> getCurrentComicFromXKCD() {
-        String uri = "https://xkcd.com/info.0.json";
         List<WebComicsResult> webComicsResults = new ArrayList<>();
-        webComicsResults.add(BeanParserUtils.parseXkcdJsonBean(client.getResultFromUrl(uri, WebComicsXkcdDTO.class)));
+        webComicsResults.add(BeanParserUtils.parseXkcdJsonBean(client.getResultFromUrl(xkcdJsonUrl, WebComicsXkcdDTO.class)));
         return webComicsResults;
     }
 }
