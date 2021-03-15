@@ -6,3 +6,7 @@ In addition I implemented one JSON call from their API if the reason of the task
 As well the APIs do not provide 10 pictures per call, it's 4 from XKCD and 8 from PDL website. So I just sorted them by a publication date. 
 Hope ypu find my solution fine. If there is a need to redo something please contact me :) 
 
+
+Docker Hub: https://hub.docker.com/r/felinache/seven-senders-assignment
+Endpoint: localhost:8080/api/v1/newsFeed
+
